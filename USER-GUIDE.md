@@ -59,7 +59,7 @@ Lựa chọn B, Figma Dev Mode MCP server trên máy. Server chạy cùng ứng 
 2. Thêm vào Claude Code: `claude mcp add --transport http --scope user figma-desktop http://127.0.0.1:3845/mcp`. Địa chỉ theo tài liệu của Figma tại thời điểm viết; kiểm tra lại trong tài liệu của Figma nếu kết nối thất bại.
 3. Figma desktop phải đang mở khi AI làm việc. Lỗi kết nối bị từ chối (connection refused) thường do Figma chưa mở hoặc server chưa bật.
 
-Lựa chọn C, figma-console MCP và plugin Desktop Bridge. Đọc và ghi qua plugin chạy trong Figma desktop. Bộ skill dựng kit của UpBase dùng cách này.
+Lựa chọn C, figma-console MCP và plugin Desktop Bridge. Đọc và ghi qua plugin chạy trong Figma desktop. Cần lựa chọn này khi công cụ dựng kit của sản phẩm (Product KB mục 5) chạy qua figma-console.
 1. Tạo personal access token trong Figma, mục Settings, Security, quyền đọc file và thư viện.
 2. Trong cửa sổ terminal riêng, thay `<token>` và chạy: `claude mcp add figma-console --scope user -e FIGMA_ACCESS_TOKEN=<token> -- npx -y figma-console-mcp@latest`. Chạy riêng để token không đi qua hội thoại với AI.
 3. Cài plugin Desktop Bridge theo tài liệu của `figma-console-mcp`. Trong Figma desktop, mở file cần làm, chạy Plugins, Development, Figma Desktop Bridge. Giữ cửa sổ plugin mở trong lúc AI làm việc.

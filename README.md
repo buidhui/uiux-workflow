@@ -4,7 +4,7 @@ Quy trình cho UI/UX Designer làm việc cùng AI, từ lúc PO có PRD đã du
 
 Repo kế thừa hướng dẫn cũ của team (`User Guide_UI-UX- Workflow w AI.md`), tham khảo khung engine và domain của PO-Workflow, và đối chiếu với phần thiết kế của AWS AI-DLC.
 
-Trạng thái: engine v0.8, chưa gắn sản phẩm nào. Kiến thức nghề trong `engine/knowledge/` còn một phần ở dạng khung. Product KB được định nghĩa ở [DOMAIN-SETUP.md](DOMAIN-SETUP.md), điền khi chạy thật.
+Trạng thái: engine v0.8.1, chưa gắn sản phẩm nào. Kiến thức nghề trong `engine/knowledge/` còn một phần ở dạng khung. Product KB được định nghĩa ở [DOMAIN-SETUP.md](DOMAIN-SETUP.md), điền khi chạy thật.
 
 ## Cài đặt
 
@@ -202,7 +202,7 @@ intents/<yymmdd-slug>/
 | Chiến lược thiết kế đặt theo artifact của Refined Mockups; chuẩn UX, accessibility | AWS AI-DLC, `aidlc-design-agent` và stage 1.6, 2.5 |
 | Điểm nhận và đẩy file thiết kế UX, Alignment | PO-Workflow, stage 2.43 |
 | Discovery chi tiết, bản kê thay đổi, review chấm điểm, fix-prompt, luật thao tác Figma | Bộ skill VIC |
-| Gap log, đề xuất bổ sung kit, không vẽ tay phần kit thiếu | Cách làm của bộ skill dựng kit (ví dụ `upbase-design-skills`) |
+| Gap log, đề xuất bổ sung kit, không vẽ tay phần kit thiếu | Cách làm của các bộ skill dựng kit trên Figma |
 | Design ref, reference lock | `refero-design` |
 
 ## Việc còn lại
@@ -224,3 +224,4 @@ intents/<yymmdd-slug>/
 | 2026-10-22 | v0.6: thêm `SETUP.md` với bốn cách kết nối Figma, ba trường hợp repo PO, cách kiểm tra sau khi cài; thêm `AGENTS.md` cho công cụ AI khác; `figma-protocol.md` thêm mục Công cụ kết nối; agent UX Lead đọc được Figma qua mọi lựa chọn và làm việc được với ảnh; USER-GUIDE thêm tình huống ngoài luồng chuẩn; viết lại văn phong toàn bộ tài liệu theo dạng văn viết |
 | 2026-10-22 | v0.7: gộp `SETUP.md` vào USER-GUIDE thành Phần A; thêm lệnh `/setup` tự cài đặt từ link repo và làm tiếp sau khi mở lại; trạng thái cài đặt và cách kết nối Figma của từng máy chuyển sang `.uiux/setup.md` (không đưa lên git), bỏ khỏi Product KB mục 6; repo sản phẩm dùng remote `engine` để lấy bản cập nhật engine |
 | 2026-10-22 | v0.8: tách phần chung và phần riêng theo cơ chế của PO-Workflow. Engine chuyển từ `.claude/` sang `engine/` (`stages/` cho tám stage, `commands/` cho lệnh tiện ích); khung Product KB sang `engine/templates/domain/`; dữ liệu sản phẩm ở `domain/`, `intents/`, `adhoc/`, `memory/`; trạng thái cài đặt của máy ở `.uiux/`. `.claude/` chỉ còn lối tắt; bỏ lệnh riêng của từng stage, `/ux` là lối vào. Luật vận hành chuyển sang `AGENTS.md`, `CLAUDE.md` chỉ trỏ về. Nâng cấp repo sản phẩm tạo từ v0.7 trở về trước: chuyển dữ liệu ở `.claude/knowledge/domain/`, `.claude/intents/`, `.claude/adhoc/`, `.claude/memory/`, `.claude/local/` sang thư mục mới trước khi `git pull engine main` |
+| 2026-10-22 | v0.8.1: bỏ tên công ty và đường dẫn cụ thể của một công cụ dựng kit khỏi README, USER-GUIDE, DOMAIN-SETUP; viết lại thành điều kiện đúng với mọi sản phẩm |

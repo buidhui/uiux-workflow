@@ -6,7 +6,7 @@ Tài liệu này cho người đưa UIUX-Workflow vào một sản phẩm. Nó �
 
 Engine là phần không phụ thuộc sản phẩm, nằm ở `engine/`: stage, lệnh, protocol, template, checklist, agent, kiến thức nghề UIUX. Product KB là phần riêng của sản phẩm, nằm ở `domain/` với manifest `domain.md`; khung KB ở `engine/templates/domain/`. Command chỉ trỏ "KB mục N", không ghi cứng dữ kiện sản phẩm; đổi sản phẩm là thay KB.
 
-Nguyên tắc quan trọng nhất: trỏ tới nguồn có sẵn, không chép. PRD và KB nghiệp vụ nằm ở repo của PO; dữ liệu UI kit có thể đã nằm ở thư mục dữ liệu của bộ công cụ kit; màn hình nằm trên Figma. `domain.md` ghi đường dẫn tới các nguồn đó. Chỉ viết file mới trong KB cho nội dung chưa có ở nguồn nào.
+Nguyên tắc quan trọng nhất: trỏ tới nguồn có sẵn, không chép. PRD và KB nghiệp vụ nằm ở repo của PO; dữ liệu UI kit nằm ở nơi công cụ dựng kit của sản phẩm lưu, nếu sản phẩm dùng công cụ đó; màn hình nằm trên Figma. `domain.md` ghi đường dẫn tới các nguồn đó. Chỉ viết file mới trong KB cho nội dung chưa có ở nguồn nào.
 
 ## 2. Mười một mục của Product KB
 
@@ -17,8 +17,8 @@ Mức: Tối thiểu là thiếu thì luồng không chạy được; Hiệu qu�
 | 1. Sản phẩm và người dùng | Module, nền tảng, breakpoint, vai và mục tiêu, ngôn ngữ, nhịp sprint | Tối thiểu | D1, D2, E2 | AI đoán nền tảng và vai, gán sai mức | Tài liệu sản phẩm, KB của PO |
 | 2. Nguồn yêu cầu và đồng thuận | Repo và đường dẫn intent của PO, PRD và mức hoàn thiện cần có, template file thiết kế UX của PO, quy ước commit, cách đồng thuận, quy ước mã màn | Tối thiểu | D1, D3, H1 | Không đọc được PRD, không đẩy được chiến lược, không qua được Alignment | Repo của PO (ví dụ PO-Workflow) |
 | 3. Kiến thức nghiệp vụ | KB nghiệp vụ của PO, thuật ngữ, thực thể và vòng đời trạng thái hiển thị | Hiệu quả | D1, D2 | Hỏi lại PO những điều đã có; state không khớp vòng đời của PRD | KB của PO, chỉ đọc |
-| 4. App hiện có | App-map hoặc screen register, khung chung của màn, pattern theo loại màn, màn mẫu để nhân bản, ảnh màn | Hiệu quả | D2, E2, R1, H1 | Thiết kế lệch pattern app, dựng lại khung từ đầu | Screen register của bộ công cụ kit, file Figma |
-| 5. Design system và UI kit | File design system và UI kit, hướng dẫn dùng kit trên màn, luật design system, gap log, người phụ trách, công cụ dựng kit cho `/kit-proposal`, mức sẵn sàng | Tối thiểu: file kit và mức sẵn sàng. Hiệu quả: hướng dẫn dùng kit và gap log | D2, E1, E2, R1 | Không gán được L1, L2; AI không dựng UI bằng instance; gap không về tay người phụ trách kit | Thư mục dữ liệu kit (ví dụ `upbase/<product>/kit-usage.md`, `gap-log.md`), file Figma |
+| 4. App hiện có | App-map hoặc screen register, khung chung của màn, pattern theo loại màn, màn mẫu để nhân bản, ảnh màn | Hiệu quả | D2, E2, R1, H1 | Thiết kế lệch pattern app, dựng lại khung từ đầu | Screen register của công cụ dựng kit (nếu có), file Figma |
+| 5. Design system và UI kit | File design system và UI kit, hướng dẫn dùng kit trên màn, luật design system, gap log, người phụ trách, công cụ dựng kit cho `/kit-proposal`, mức sẵn sàng | Tối thiểu: file kit và mức sẵn sàng. Hiệu quả: hướng dẫn dùng kit và gap log | D2, E1, E2, R1 | Không gán được L1, L2; AI không dựng UI bằng instance; gap không về tay người phụ trách kit | Hướng dẫn dùng kit và gap log ở nơi công cụ dựng kit lưu (nếu có), file Figma |
 | 6. Figma workspace | File thiết kế, cấu trúc page, khu vực nháp cho AI, quy ước tên frame, changelog và version, người cấp quyền | Tối thiểu | E2, E3, R1, H1 | AI ghi sai vị trí, không có nơi an toàn để dựng | File Figma |
 | 7. Frontend stack | Thư viện component của frontend thật và version, theme ở dạng code, icon, font, cách tải trong một file HTML, bảng ánh xạ component kit sang code | Hiệu quả | D2, E3 | Prototype chỉ giống thiết kế, không giống hành vi thật | Repo frontend, cấu hình theme |
 | 8. Nội dung | Giọng văn, thuật ngữ sản phẩm, câu mẫu | Hiệu quả | D2, E1, E2 | Chữ trên màn mỗi nơi một cách | Content guide có sẵn, hoặc `content-guide.md` |
@@ -55,7 +55,7 @@ Nguồn sống (repo PO, Figma, thư mục dữ liệu kit) được đọc lạ
 1. Tạo repo sản phẩm từ repo engine: gửi "Cài đặt UIUX-Workflow từ <link engine>" và chọn sản phẩm mới, hoặc clone tay và đổi tên remote `origin` thành `engine` (`USER-GUIDE.md` mục A5). Repo engine có `domain/`, `intents/`, `adhoc/` trống và `memory/team.md` bản trống, không cần dọn.
 2. Chạy `/new-domain`: AI chép khung từ `engine/templates/domain/` sang `domain/`, hỏi theo mười một mục, ghi `domain/domain.md`, ưu tiên điền đường dẫn tới nguồn có sẵn.
 3. Điền đủ mức Tối thiểu. Kiểm từng đường dẫn mở được.
-4. Mục 5: sản phẩm đã có hướng dẫn dùng kit và gap log ở thư mục dữ liệu của bộ công cụ kit thì trỏ tới; chưa có thì dùng `gap-log.md` trong KB và viết hướng dẫn dùng kit dần theo việc.
+4. Mục 5: sản phẩm đã có hướng dẫn dùng kit và gap log ở nơi công cụ dựng kit lưu thì trỏ tới; chưa có thì dùng `gap-log.md` trong KB và viết hướng dẫn dùng kit dần theo việc.
 5. Mục 7: ghi thư viện component và theme của frontend; bảng ánh xạ component kit sang code viết dần ở E3.
 6. Chạy thử một intent.
 
