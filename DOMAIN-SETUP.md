@@ -4,7 +4,7 @@ Tài liệu này cho người đưa UIUX-Workflow vào một sản phẩm. Nó �
 
 ## 1. Engine và Product KB
 
-Engine là phần không phụ thuộc sản phẩm: protocol, command, template, checklist, agent, kiến thức nghề UIUX. Product KB là toàn bộ phần riêng của sản phẩm, nằm ở `.claude/knowledge/domain/` với manifest `domain.md`. Command chỉ trỏ "KB mục N", không ghi cứng dữ kiện sản phẩm; đổi sản phẩm là thay KB.
+Engine là phần không phụ thuộc sản phẩm, nằm ở `engine/`: stage, lệnh, protocol, template, checklist, agent, kiến thức nghề UIUX. Product KB là phần riêng của sản phẩm, nằm ở `domain/` với manifest `domain.md`; khung KB ở `engine/templates/domain/`. Command chỉ trỏ "KB mục N", không ghi cứng dữ kiện sản phẩm; đổi sản phẩm là thay KB.
 
 Nguyên tắc quan trọng nhất: trỏ tới nguồn có sẵn, không chép. PRD và KB nghiệp vụ nằm ở repo của PO; dữ liệu UI kit có thể đã nằm ở thư mục dữ liệu của bộ công cụ kit; màn hình nằm trên Figma. `domain.md` ghi đường dẫn tới các nguồn đó. Chỉ viết file mới trong KB cho nội dung chưa có ở nguồn nào.
 
@@ -46,14 +46,14 @@ Mức: Tối thiểu là thiếu thì luồng không chạy được; Hiệu qu�
 | E2, R1 | Gap gặp khi dựng và review; pattern mới được thống nhất | Gap log; hướng dẫn dùng kit nếu người phụ trách kit cho phép |
 | E3 | Ánh xạ component kit sang code | Mục 7 |
 | H1 | Màn đã bàn giao | App-map hoặc screen register (mục 4) |
-| Đóng intent | Bài học | `.claude/memory/team.md` |
+| Đóng intent | Bài học | `memory/team.md` |
 
 Nguồn sống (repo PO, Figma, thư mục dữ liệu kit) được đọc lại khi intent chạm tới, hoặc khi bản trong KB quá một tháng. Nguồn cố định (brand guideline) thì hỏi người phụ trách khi nghi ngờ.
 
 ## 5. Dựng Product KB
 
-1. Clone repo engine sang thư mục mới, đặt tên theo sản phẩm. Xoá `.claude/intents/`, `.claude/adhoc/`, giữ `.gitkeep`. Đưa `.claude/memory/team.md` về bản trống.
-2. Chạy `/new-domain`: AI hỏi theo mười một mục, ghi `domain.md`, ưu tiên điền đường dẫn tới nguồn có sẵn.
+1. Tạo repo sản phẩm từ repo engine: gửi "Cài đặt UIUX-Workflow từ <link engine>" và chọn sản phẩm mới, hoặc clone tay và đổi tên remote `origin` thành `engine` (`USER-GUIDE.md` mục A5). Repo engine có `domain/`, `intents/`, `adhoc/` trống và `memory/team.md` bản trống, không cần dọn.
+2. Chạy `/new-domain`: AI chép khung từ `engine/templates/domain/` sang `domain/`, hỏi theo mười một mục, ghi `domain/domain.md`, ưu tiên điền đường dẫn tới nguồn có sẵn.
 3. Điền đủ mức Tối thiểu. Kiểm từng đường dẫn mở được.
 4. Mục 5: sản phẩm đã có hướng dẫn dùng kit và gap log ở thư mục dữ liệu của bộ công cụ kit thì trỏ tới; chưa có thì dùng `gap-log.md` trong KB và viết hướng dẫn dùng kit dần theo việc.
 5. Mục 7: ghi thư viện component và theme của frontend; bảng ánh xạ component kit sang code viết dần ở E3.
@@ -75,4 +75,4 @@ Nguồn sống (repo PO, Figma, thư mục dữ liệu kit) được đọc lạ
 - [ ] Có khu vực nháp cho AI trên Figma; công cụ MCP đọc và ghi được vào khu vực đó
 - [ ] Gap log có nơi ghi, biết người phụ trách kit
 - [ ] Biết thư viện component frontend để làm prototype
-- [ ] Engine sạch tên sản phẩm: `grep -rni "<tên sản phẩm>\|<tên công ty>" .claude/commands .claude/protocol .claude/templates .claude/verification .claude/agents .claude/knowledge/uiux CLAUDE.md` trả về rỗng
+- [ ] Engine sạch tên sản phẩm: `grep -rni "<tên sản phẩm>\|<tên công ty>" engine .claude AGENTS.md` trả về rỗng

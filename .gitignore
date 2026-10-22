@@ -1,4 +1,4 @@
 .DS_Store
 node_modules
 .playwright-mcp/
-.claude/local/
+/.uiux/

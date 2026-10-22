@@ -15,7 +15,7 @@ Designer làm hai việc:
    ```
    Sản phẩm đã có repo UIUX-Workflow riêng thì gửi link repo đó.
 
-AI chạy lệnh `/setup` (`.claude/commands/setup.md`): tải repo, kiểm công cụ trên máy, hỏi cách kết nối Figma, nối repo của PO, kiểm tra, sau đó chỉ việc kế tiếp. Các việc dưới đây cần Designer thao tác; AI hướng dẫn từng thao tác và chờ xác nhận:
+AI chạy lệnh `/setup` (`engine/commands/setup.md`): tải repo, kiểm công cụ trên máy, hỏi cách kết nối Figma, nối repo của PO, kiểm tra, sau đó chỉ việc kế tiếp. Các việc dưới đây cần Designer thao tác; AI hướng dẫn từng thao tác và chờ xác nhận:
 
 | Việc | Khi nào |
 |---|---|
@@ -26,7 +26,7 @@ AI chạy lệnh `/setup` (`.claude/commands/setup.md`): tải repo, kiểm côn
 | Cài Git hoặc Node.js | Khi máy chưa có và lựa chọn cần đến |
 | Mở lại Claude Code tại thư mục repo | Sau khi thêm kết nối Figma, hoặc khi phiên cài đặt không mở tại thư mục repo |
 
-Cài đặt dừng giữa chừng thì mở Claude Code tại thư mục repo và gõ "tiếp tục cài đặt"; AI làm tiếp từ bước đã dừng. Trạng thái cài đặt của từng máy nằm ở `.claude/local/setup.md`, không đưa lên git. Gõ `/setup` khi cần kiểm lại hoặc đổi lựa chọn.
+Cài đặt dừng giữa chừng thì mở Claude Code tại thư mục repo và gõ "tiếp tục cài đặt"; AI làm tiếp từ bước đã dừng. Trạng thái cài đặt của từng máy nằm ở `.uiux/setup.md`, không đưa lên git. Gõ `/setup` khi cần kiểm lại hoặc đổi lựa chọn.
 
 Các mục A2 đến A7 mô tả từng lựa chọn, dùng khi Designer muốn tự cài hoặc khi một bước tự động gặp lỗi.
 
@@ -35,9 +35,9 @@ Các mục A2 đến A7 mô tả từng lựa chọn, dùng khi Designer muốn 
 | Cách | Khi nào dùng | Cách chạy quy trình |
 |---|---|---|
 | Claude Code trong VS Code, ứng dụng desktop hoặc terminal | Cách chính, được hỗ trợ đầy đủ | Mở thư mục repo. Lệnh `/ux`, `/new-intent` và các lệnh khác có sẵn |
-| Công cụ AI khác đọc được repo (ví dụ Codex, Cursor) | Team đang dùng công cụ đó | Công cụ đọc `AGENTS.md`. Lệnh là file Markdown trong `.claude/commands/`; yêu cầu AI đọc file lệnh, sau đó làm theo, ví dụ "đọc `.claude/commands/ux.md` và làm theo". Kết nối Figma cài theo cách của công cụ đó, giữ tên server ở mục A3 |
+| Công cụ AI khác đọc được repo (ví dụ Codex, Cursor) | Team đang dùng công cụ đó | Công cụ đọc `AGENTS.md`. Lệnh là file Markdown trong `engine/commands/`; yêu cầu AI đọc file lệnh, sau đó làm theo, ví dụ "đọc `engine/commands/ux.md` và làm theo". Kết nối Figma cài theo cách của công cụ đó, giữ tên server ở mục A3 |
 
-Với công cụ khác Claude Code, agent review độc lập (`.claude/agents/ux-lead.md`) có thể không chạy được như một agent riêng. Khi đó mở một phiên mới, đưa đúng các file mà `review-protocol.md` liệt kê và yêu cầu đóng vai UX Lead theo file agent; phiên review không được thấy hội thoại thiết kế.
+Với công cụ khác Claude Code, agent review độc lập có thể không chạy được như một agent riêng. Khi đó mở một phiên mới, đưa đúng các file mà `review-protocol.md` liệt kê và yêu cầu đóng vai UX Lead theo `engine/agents/ux-lead.md`; phiên review không được thấy hội thoại thiết kế.
 
 | Công cụ nền | Cần cho | Cách cài |
 |---|---|---|
@@ -84,7 +84,7 @@ Khả năng của từng lựa chọn:
 | Cần Figma desktop mở | Không | Có | Có | Không |
 | Cần token | Không | Không | Có | Không |
 
-"Kiểm khi cài" nghĩa là khả năng phụ thuộc phiên bản công cụ. Lần đầu cần dùng, AI thử trên khu vực nháp và ghi kết quả vào `.claude/local/setup.md`.
+"Kiểm khi cài" nghĩa là khả năng phụ thuộc phiên bản công cụ. Lần đầu cần dùng, AI thử trên khu vực nháp và ghi kết quả vào `.uiux/setup.md`.
 
 Lựa chọn nào cho stage nào:
 
@@ -107,18 +107,18 @@ Agent review và tên server: agent `ux-lead` chỉ được đọc Figma. Danh 
 | Repo git, Designer chỉ có quyền đọc | Quy ước của PO không cho Designer push | AI soạn nội dung file; Designer gửi PO, hoặc mở pull request nếu quy ước cho phép |
 | Không có repo; PRD trên Lark, Confluence, Google Docs | Team PO chưa dùng repo | AI xuất file thiết kế UX ở `discovery/alignment/`; Designer đưa lên nơi PO dùng; xác nhận của PO dán nguyên văn vào `decisions.md` |
 
-Cách làm việc với PO ghi ở Product KB mục 2. Đường dẫn repo của PO trên máy ghi ở `.claude/local/setup.md`.
+Cách làm việc với PO ghi ở Product KB mục 2. Đường dẫn repo của PO trên máy ghi ở `.uiux/setup.md`.
 
 ### A5. Repo sản phẩm và bản cập nhật engine
 
-Repo `buidhui/uiux-workflow` là engine, chưa gắn sản phẩm. Mỗi sản phẩm dùng một repo riêng chứa engine và Product KB của sản phẩm đó.
+Repo `buidhui/uiux-workflow` là engine, chưa gắn sản phẩm. Mỗi sản phẩm dùng một repo riêng chứa engine và dữ liệu của sản phẩm đó. Trong repo, phần chung (`engine/`, `.claude/`, tài liệu ở thư mục gốc) tách khỏi phần riêng của sản phẩm (`domain/`, `intents/`, `adhoc/`, `memory/`) và phần riêng của từng máy (`.uiux/`); bảng đầy đủ ở `AGENTS.md` mục Cấu trúc.
 
 | Tình huống | Cách làm |
 |---|---|
 | Sản phẩm đã có repo UIUX-Workflow | Cài từ link repo sản phẩm. Product KB đã có, không cần dựng lại |
 | Sản phẩm mới | Cài từ link engine. `/setup` đổi tên remote `origin` thành `engine`; sau đó chạy `/new-domain`. Người phụ trách tạo repo sản phẩm khi cần chia sẻ cho Designer khác |
-| Lấy bản cập nhật engine | `git pull engine main` trong repo sản phẩm. Product KB nằm ở `.claude/knowledge/domain/`; khi engine đổi cấu trúc `domain.md`, xử lý xung đột theo ghi chú của phiên bản đó trong bảng Lịch sử của README |
-| Không dùng git | Quy trình vẫn chạy; mất lịch sử thay đổi và không chia sẻ được với Designer khác. Sao lưu thư mục `.claude/intents/` định kỳ |
+| Lấy bản cập nhật engine | `git pull engine main` trong repo sản phẩm. Bản mới chỉ đổi phần chung; phần riêng giữ nguyên. Khi khung Product KB ở `engine/templates/domain/` có mục mới, bổ sung vào `domain/domain.md` theo ghi chú của phiên bản đó trong bảng Lịch sử của README |
+| Không dùng git | Quy trình vẫn chạy; mất lịch sử thay đổi và không chia sẻ được với Designer khác. Sao lưu thư mục `intents/` định kỳ |
 
 AI chỉ commit và push khi Designer yêu cầu.
 

@@ -1,15 +1,15 @@
 # Glossary
 
-Thuật ngữ và họ mã của UIUX-Workflow. Tên phản hồi và state theo hướng dẫn cũ của team; thuật ngữ khung (intent, stage, engine) dùng chung với PO-Workflow; tên artifact thiết kế đối chiếu với AWS AI-DLC. Khi nói với Designer, dùng từ thường theo bảng ở `.claude/protocol/stage-protocol.md`.
+Thuật ngữ và họ mã của UIUX-Workflow. Tên phản hồi và state theo hướng dẫn cũ của team; thuật ngữ khung (intent, stage, engine) dùng chung với PO-Workflow; tên artifact thiết kế đối chiếu với AWS AI-DLC. Khi nói với Designer, dùng từ thường theo bảng ở `engine/protocol/stage-protocol.md`.
 
 ## Khung
 
 | Thuật ngữ | Nghĩa trong UIUX-Workflow | Nguồn |
 |---|---|---|
-| Intent | Một yêu cầu thiết kế đi trọn vòng, thường ứng với một intent của PO, có thư mục riêng trong `.claude/intents/` | PO-Workflow |
+| Intent | Một yêu cầu thiết kế đi trọn vòng, thường ứng với một intent của PO, có thư mục riêng trong `intents/` | PO-Workflow |
 | Phase | Discovery & Strategy, Design Execution, Review, Refine & Deliver | Repo, theo hướng dẫn cũ của team |
 | Stage | Một bước có artifact riêng: D1, D2, D3, E1, E2, E3, R1, H1 | Repo |
-| Mức thiết kế | L1 Có sẵn, L2 Mở rộng, L3 Sáng tạo, gán cho từng màn; cùng độ phức tạp logic quyết định độ sâu. Định nghĩa ở `protocol/design-levels.md` | Repo |
+| Mức thiết kế | L1 Có sẵn, L2 Mở rộng, L3 Sáng tạo, gán cho từng màn; cùng độ phức tạp logic quyết định độ sâu. Định nghĩa ở `engine/protocol/design-levels.md` | Repo |
 | Độ phức tạp logic | Thường, Phức tạp, gán cho từng màn | Repo |
 | Gate | Context checkpoint, Strategy Gate, Alignment Gate, UX Brief Gate, UI Gate, Dev Feasibility Gate, Delivery Gate | Repo, theo hướng dẫn cũ |
 | Phản hồi tại gate | Approved, Approved with Notes, Need Revision, Blocked | Hướng dẫn cũ của team |
@@ -18,7 +18,7 @@ Thuật ngữ và họ mã của UIUX-Workflow. Tên phản hồi và state theo
 | Learnings | Vòng học, một lần khi đóng intent | PO-Workflow, rút gọn |
 | Archive | Bản chụp lúc duyệt, chỉ cho D2, D3, E1, R1, H1 | PO-Workflow, rút gọn |
 | Engine | Phần không phụ thuộc sản phẩm: protocol, command, template, checklist, agent, kiến thức nghề | PO-Workflow |
-| Product KB | Phần riêng của sản phẩm trong `.claude/knowledge/domain/`, manifest `domain.md` mười một mục, ưu tiên trỏ tới nguồn có sẵn. Định nghĩa ở `DOMAIN-SETUP.md` | Repo |
+| Product KB | Phần riêng của sản phẩm trong `domain/`, manifest `domain.md` mười một mục, ưu tiên trỏ tới nguồn có sẵn. Định nghĩa ở `DOMAIN-SETUP.md` | Repo |
 | Live source · Pinned record | Nguồn sống được đọc lại khi chạm tới; bản cố định thì hỏi người phụ trách khi nghi ngờ | PO-Workflow |
 
 ## Khái niệm UIUX
@@ -28,7 +28,7 @@ Thuật ngữ và họ mã của UIUX-Workflow. Tên phản hồi và state theo
 | Confirmed · Assumption · Open question | Ba loại thông tin luôn tách riêng | Hướng dẫn cũ của team |
 | User task | Hành động cụ thể của một vai trên giao diện, rút từ một yêu cầu | VIC |
 | Flow | Chuỗi bước để một vai đạt một mục tiêu: chính, phụ, lỗi | Chuẩn ngành |
-| Screen state | Bảy state cấp màn: Default, Empty, Loading, Success, Error, Disabled, Permission. Định nghĩa ở `knowledge/uiux/screen-states.md` | Hướng dẫn cũ của team |
+| Screen state | Bảy state cấp màn: Default, Empty, Loading, Success, Error, Disabled, Permission. Định nghĩa ở `engine/knowledge/screen-states.md` | Hướng dẫn cũ của team |
 | Element state | Hover, pressed, focus, disabled, selected, invalid của phần tử tương tác | Chuẩn ngành |
 | Design Strategy | `design-strategy.md`, chiến lược thiết kế từ PRD: màn, luồng và tương tác, thành phần giao diện, accessibility, màn cần sáng tạo, ý kiến về PRD, rủi ro. Mục 1 đến 7 đẩy lên repo PO; phần sau là nội bộ | Repo; bốn mục đầu theo 2.5 Refined Mockups của AWS |
 | File thiết kế UX trên repo PO | File do Designer phụ trách trong intent của PO (ví dụ `inception/ux-design/ux-design.md`), render từ Design Strategy theo template của PO | PO-Workflow |
@@ -44,7 +44,7 @@ Thuật ngữ và họ mã của UIUX-Workflow. Tên phản hồi và state theo
 | UI kit | Thư viện component của sản phẩm trên Figma, do người phụ trách kit dựng | Repo |
 | GAP · Gap log | Thứ UI kit chưa làm được điều màn cần; nhật ký các GAP của sản phẩm (Product KB mục 5) | VIC, bộ skill dựng kit |
 | Kit proposal | Đề xuất bổ sung component vào UI kit bằng `/kit-proposal`; chỉ đề xuất, không dựng | Repo |
-| Mức sẵn sàng design system | 0, 1, 2 của cả sản phẩm; quyết định AI có dựng UI ở E2 bằng instance không. Định nghĩa ở `protocol/figma-protocol.md` | Repo |
+| Mức sẵn sàng design system | 0, 1, 2 của cả sản phẩm; quyết định AI có dựng UI ở E2 bằng instance không. Định nghĩa ở `engine/protocol/figma-protocol.md` | Repo |
 | Khu vực nháp | Page hoặc branch trên Figma nơi AI ghi; Designer chuyển sang page chính sau UI Gate | Repo |
 | Frame tự dựng | Frame thường, tên bắt đầu bằng `~`, ruột ghép từ instance kit, chỉ khi Designer cho phép | VIC |
 | App-map · Screen register | Bản đồ màn và flow của app đang chạy (Product KB mục 4) | VIC, bộ skill dựng kit |
