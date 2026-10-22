@@ -12,11 +12,13 @@ Tạo việc và đi thẳng vào D1, không dừng giữa chừng. Đường đ
 Slug: bỏ dấu, chữ thường, gạch nối, tiền tố ngày `YYMMDD-`. Trùng slug đã có: báo và hỏi dùng tiếp hoặc đặt tên khác.
 
 ## 1. Domain tối thiểu
+Chưa có `.claude/local/setup.md` hoặc trạng thái khác `xong`: chạy `/setup` trước, sau đó quay lại bước này.
+
 Đọc `.claude/knowledge/domain/domain.md`. Sáu thông tin dưới đây phải có để chạy việc; thiếu thì hỏi bù trong một lượt, ghi vào `domain.md`, không bắt Designer làm hết `DOMAIN-SETUP.md`:
 1. Sản phẩm, nền tảng, breakpoint chính (KB mục 1)
 2. Repo của PO và cách đồng thuận chiến lược thiết kế (KB mục 2)
 3. File UI kit và hướng dẫn dùng kit; mức sẵn sàng, không chắc thì 0 (KB mục 5)
-4. File Figma thiết kế, khu vực nháp cho AI, công cụ MCP (KB mục 6)
+4. File Figma thiết kế, khu vực nháp cho AI (KB mục 6)
 5. Thư viện component frontend cho prototype (KB mục 7)
 6. Nơi nhận góp ý và công cụ quản lý task (KB mục 11)
 

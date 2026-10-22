@@ -4,9 +4,9 @@ Luật thao tác Figma cho mọi stage ghi vào Figma (E1 khi vẽ wireframe, E2
 
 ## 0. Công cụ kết nối
 
-Engine không gắn với một công cụ Figma. `SETUP.md` mục 2 mô tả bốn lựa chọn: A connector Figma của claude.ai, B Figma Dev Mode MCP trên máy, C figma-console MCP với plugin Desktop Bridge, D không kết nối. Lựa chọn đang dùng và kết quả kiểm khả năng ghi ở KB mục 6.
+Engine không gắn với một công cụ Figma. `USER-GUIDE.md` mục A3 mô tả bốn lựa chọn: A connector Figma của claude.ai, B Figma Dev Mode MCP trên máy, C figma-console MCP với plugin Desktop Bridge, D không kết nối. Lựa chọn đang dùng trên máy và kết quả kiểm khả năng ghi ở `.claude/local/setup.md` (do `/setup` ghi, không đưa lên git).
 
-Trước việc đầu tiên cần Figma trong một phiên: kiểm công cụ nào đang kết nối, việc cần làm đòi khả năng nào (đọc, chụp ảnh, ghi), và đối chiếu bảng khả năng ở `SETUP.md` mục 2. Công cụ hiện có không đủ thì dùng cách thay thế ở bảng "Lựa chọn nào cho stage nào" và báo Designer một dòng. Không giả định một khả năng chưa được kiểm; khả năng ghi "Kiểm khi cài" thì thử một lần trên khu vực nháp, ghi kết quả vào KB mục 6.
+Trước việc đầu tiên cần Figma trong một phiên: kiểm công cụ nào đang kết nối, việc cần làm đòi khả năng nào (đọc, chụp ảnh, ghi), và đối chiếu bảng khả năng ở `USER-GUIDE.md` mục A3. Công cụ hiện có không đủ thì dùng cách thay thế ở bảng "Lựa chọn nào cho stage nào" và báo Designer một dòng. Không giả định một khả năng chưa được kiểm; khả năng ghi "Kiểm khi cài" thì thử một lần trên khu vực nháp, ghi kết quả vào `.claude/local/setup.md`.
 
 Tài liệu này gọi thao tác theo tên chung: "đọc design context", "chụp ảnh frame", "chạy lệnh ghi qua Plugin API", "tìm component trong thư viện". Mỗi lựa chọn có tên công cụ riêng cho cùng thao tác.
 
@@ -61,4 +61,4 @@ Mức hiện tại ghi ở KB mục 5. Command kiểm mức này ở bước Loa
 - Báo cáo tách rõ phần nào là instance thư viện, phần nào là frame tự dựng, kèm lý do.
 
 ## 8. Lỗi kết nối
-Kết nối MCP lỗi: dừng, kiểm trạng thái thật, báo việc đã làm và chưa làm, sau đó mới làm tiếp. Cách khắc phục theo từng lựa chọn ở `SETUP.md` mục 2 và KB mục 6. Không khắc phục được thì chuyển sang cách thay thế của stage và ghi vào Limitation.
+Kết nối MCP lỗi: dừng, kiểm trạng thái thật, báo việc đã làm và chưa làm, sau đó mới làm tiếp. Cách khắc phục theo từng lựa chọn ở `USER-GUIDE.md` mục A3; chạy `/setup` để kiểm lại kết nối. Không khắc phục được thì chuyển sang cách thay thế của stage và ghi vào Limitation.

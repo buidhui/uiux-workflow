@@ -81,4 +81,4 @@ Thuật ngữ và họ mã của UIUX-Workflow. Tên phản hồi và state theo
 | R1 | Review & Refine | review-refine | feedback.md, design-review.md, fix-prompt.md | UI Gate, Dev Feasibility Gate |
 | H1 | Handoff & Done | handoff | delivery-summary.md, ghi chú trên Figma | Delivery Gate |
 
-Tiện ích: `/new-intent`, `/ux`, `/ux-status`, `/ux-review`, `/change-request`, `/kit-proposal`, `/ds-lookup`, `/new-domain`.
+Tiện ích: `/setup`, `/new-intent`, `/ux`, `/ux-status`, `/ux-review`, `/change-request`, `/kit-proposal`, `/ds-lookup`, `/new-domain`.

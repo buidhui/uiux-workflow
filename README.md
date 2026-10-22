@@ -4,20 +4,28 @@ Quy trình cho UI/UX Designer làm việc cùng AI, từ lúc PO có PRD đã du
 
 Repo kế thừa hướng dẫn cũ của team (`User Guide_UI-UX- Workflow w AI.md`), tham khảo khung engine và domain của PO-Workflow, và đối chiếu với phần thiết kế của AWS AI-DLC.
 
-Trạng thái: engine v0.6, chưa gắn sản phẩm nào. Kiến thức nghề trong `.claude/knowledge/uiux/` còn một phần ở dạng khung. Product KB được định nghĩa ở [DOMAIN-SETUP.md](DOMAIN-SETUP.md), điền khi chạy thật.
+Trạng thái: engine v0.7, chưa gắn sản phẩm nào. Kiến thức nghề trong `.claude/knowledge/uiux/` còn một phần ở dạng khung. Product KB được định nghĩa ở [DOMAIN-SETUP.md](DOMAIN-SETUP.md), điền khi chạy thật.
+
+## Cài đặt
+
+1. Cài Claude Code và đăng nhập (tiện ích trong VS Code, ứng dụng desktop, hoặc terminal).
+2. Mở Claude Code ở thư mục bất kỳ, gửi: `Cài đặt UIUX-Workflow từ https://github.com/buidhui/uiux-workflow`. Sản phẩm đã có repo UIUX-Workflow riêng thì gửi link repo đó.
+
+AI tải repo và hướng dẫn từng bước: kết nối Figma, nối repo của PO, kiểm tra. Các việc cần Designer tự thao tác (đăng nhập, bật tuỳ chọn trong Figma, xin quyền) và cách cài tay ở [USER-GUIDE.md](USER-GUIDE.md) Phần A.
+
+Dành cho AI nhận yêu cầu cài đặt: tải repo về thư mục Designer chọn, đọc `.claude/commands/setup.md` và làm theo từ bước 0.
 
 ## Tài liệu theo người đọc
 
 | Tài liệu | Dành cho | Nội dung |
 |---|---|---|
-| [SETUP.md](SETUP.md) | Designer mới nhận repo | Cài công cụ AI, chọn cách kết nối Figma, cách làm với repo PO, kiểm tra sau khi cài |
-| [USER-GUIDE.md](USER-GUIDE.md) | Designer khi làm việc | Từng bước một việc từ PRD tới bàn giao, tình huống ngoài luồng chuẩn |
+| [USER-GUIDE.md](USER-GUIDE.md) | Designer | Phần A: cài đặt, bốn cách kết nối Figma, repo của PO, repo sản phẩm. Phần B: từng bước một việc từ PRD tới bàn giao, tình huống ngoài luồng chuẩn |
 | [DOMAIN-SETUP.md](DOMAIN-SETUP.md) | Người dựng Product KB | Mười một mục của Product KB, mức Tối thiểu và Hiệu quả |
 | [GLOSSARY.md](GLOSSARY.md) | Mọi người | Thuật ngữ của quy trình |
 | [CLAUDE.md](CLAUDE.md) | Claude Code | Luật vận hành, định tuyến lệnh |
 | [AGENTS.md](AGENTS.md) | Công cụ AI khác | Cách chạy quy trình khi không dùng Claude Code |
 
-Engine không phụ thuộc công cụ: chạy được với bốn cách kết nối Figma (kể cả không kết nối), với repo PO có quyền push, chỉ đọc, hoặc không có repo, và với công cụ AI khác Claude Code. Phần việc AI không làm được với một lựa chọn có cách thay thế ghi ở `SETUP.md`.
+Engine không phụ thuộc công cụ: chạy được với bốn cách kết nối Figma (kể cả không kết nối), với repo PO có quyền push, chỉ đọc, hoặc không có repo, và với công cụ AI khác Claude Code. Phần việc AI không làm được với một lựa chọn có cách thay thế ghi ở `USER-GUIDE.md` mục A3.
 
 ## Mục tiêu theo thứ tự
 
@@ -141,6 +149,7 @@ Designer không cần nhớ lệnh: nói tự nhiên, AI định tuyến theo b�
 
 | Lệnh | Việc |
 |---|---|
+| `/setup` | Cài đặt trên máy mới, kiểm lại hoặc đổi cách kết nối Figma |
 | `/new-intent` | Tạo việc từ PRD đã duyệt, hỏi bù Product KB tối thiểu, chạy ngay D1 |
 | `/ux` | Làm bước kế tiếp hoặc tiếp tục phần chưa hoàn tất |
 | `/ux-status` | Trạng thái các việc, kiểm lệch với repo PO và Figma |
@@ -185,9 +194,10 @@ Engine không chứa dữ kiện sản phẩm. Product KB ở `.claude/knowledge
 | # | Việc | Ghi chú |
 |---|---|---|
 | 1 | Chuyển nội dung còn lại vào `.claude/knowledge/uiux/` | Có thể chép kiến thức của Design Agent AWS (MIT-0) cho heuristic, accessibility, interaction pattern |
-| 2 | Kiểm các khả năng ghi "Kiểm khi cài" ở `SETUP.md` mục 2 trên một file thật: dựng instance, lưu version, đọc design context để sinh HTML | Ghi kết quả vào Product KB mục 6 |
+| 2 | Kiểm các khả năng ghi "Kiểm khi cài" ở `USER-GUIDE.md` mục A3 trên một file thật: dựng instance, lưu version, đọc design context để sinh HTML | Ghi kết quả vào `.claude/local/setup.md` |
 | 3 | Chạy thử với một sản phẩm thật, dựng Product KB mức Tối thiểu | |
 | 4 | Lộ trình AI-DLC | Sau khi luồng SDLC chạy ổn |
+| 5 | Chạy thử `/setup` trên một máy chưa cài gì, với từng lựa chọn Figma | Lệnh mới ở v0.7, chưa chạy thử từ đầu tới cuối |
 
 ## Lịch sử
 
@@ -196,3 +206,4 @@ Engine không chứa dữ kiện sản phẩm. Product KB ở `.claude/knowledge
 | 2026-10-13 | v0.1 đến v0.4: khung, rút nghi thức, mức thiết kế theo màn, tối ưu luồng |
 | 2026-10-22 | v0.5: luồng theo SDLC bắt đầu từ PRD đã duyệt; D2 thành Design Strategy, thêm D3 Alignment đẩy chiến lược lên repo PO và chờ đồng thuận; thêm E3 Prototype HTML; bỏ dựng component, thay bằng `/kit-proposal`; Product KB mười một mục; đối chiếu và lộ trình AWS AI-DLC |
 | 2026-10-22 | v0.6: thêm `SETUP.md` với bốn cách kết nối Figma, ba trường hợp repo PO, cách kiểm tra sau khi cài; thêm `AGENTS.md` cho công cụ AI khác; `figma-protocol.md` thêm mục Công cụ kết nối; agent UX Lead đọc được Figma qua mọi lựa chọn và làm việc được với ảnh; USER-GUIDE thêm tình huống ngoài luồng chuẩn; viết lại văn phong toàn bộ tài liệu theo dạng văn viết |
+| 2026-10-22 | v0.7: gộp `SETUP.md` vào USER-GUIDE thành Phần A; thêm lệnh `/setup` tự cài đặt từ link repo và làm tiếp sau khi mở lại; trạng thái cài đặt và cách kết nối Figma của từng máy chuyển sang `.claude/local/setup.md` (không đưa lên git), bỏ khỏi Product KB mục 6; repo sản phẩm dùng remote `engine` để lấy bản cập nhật engine |

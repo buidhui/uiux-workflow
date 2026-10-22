@@ -5,21 +5,24 @@ Mục đích: giúp UI/UX Designer dùng AI để đọc hiểu PRD đã duyệt
 Quy tắc chi tiết nằm trong `.claude/protocol/` và từng command, không lặp lại ở đây. Tài liệu liên quan:
 
 - [README.md](README.md): phương pháp, từng phase và stage, nguồn gốc
-- [USER-GUIDE.md](USER-GUIDE.md): thao tác cho Designer
+- [USER-GUIDE.md](USER-GUIDE.md): Phần A cài đặt (các lựa chọn kết nối Figma, repo của PO, repo sản phẩm), Phần B thao tác cho Designer
 - [GLOSSARY.md](GLOSSARY.md): thuật ngữ và họ mã
 - [DOMAIN-SETUP.md](DOMAIN-SETUP.md): Product KB, một sản phẩm cần chuẩn bị gì
-- [SETUP.md](SETUP.md): cài đặt, các lựa chọn kết nối Figma, repo của PO, công cụ dựng kit, prototype
 - [AGENTS.md](AGENTS.md): cách dùng repo với công cụ AI khác Claude Code
 
 ## Luồng làm việc
 
 Mỗi yêu cầu thiết kế là một intent trong `.claude/intents/`, bắt đầu từ PRD đã duyệt, đi qua ba phase: Discovery & Strategy (D1 đến D3), Design Execution (E1 đến E3), Review, Refine & Deliver (R1, H1). Độ sâu quy trình quyết định theo từng màn (mức thiết kế L1, L2, L3 và độ phức tạp logic), không theo số màn: `.claude/protocol/design-levels.md`.
 
-- Lệnh: `/new-intent` tạo, `/ux` chạy stage kế tiếp, `/ux-status` xem trạng thái, `/ux-review` review độc lập, `/change-request` đổi chiến lược sau khi đã đồng thuận
+- Lệnh: `/setup` cài đặt trên máy, `/new-intent` tạo, `/ux` chạy stage kế tiếp, `/ux-status` xem trạng thái, `/ux-review` review độc lập, `/change-request` đổi chiến lược sau khi đã đồng thuận
 - Phản hồi tại gate: Approved, Approved with Notes, Need Revision, Blocked
 - Designer không cần nhớ lệnh: nói tự nhiên, AI định tuyến theo mục Nói tự nhiên dưới đây
-- Nghi thức ở `.claude/protocol/*.md`; mọi thao tác với Figma theo `figma-protocol.md`, chạy được với mọi lựa chọn kết nối ở `SETUP.md`
+- Nghi thức ở `.claude/protocol/*.md`; mọi thao tác với Figma theo `figma-protocol.md`, chạy được với mọi lựa chọn kết nối ở `USER-GUIDE.md` mục A3
 - Tên file artifact ổn định, version ở frontmatter, bản duyệt chụp vào `archive/` của intent theo `gate-protocol.md`; không tạo file `v0.x`
+
+## Đầu phiên
+
+Thư mục `.claude/local/` chứa trạng thái cài đặt của máy đang dùng. Chưa có `.claude/local/setup.md`, hoặc trạng thái khác `xong`: trả lời việc Designer đang hỏi, sau đó đề xuất một dòng chạy `/setup`. Trạng thái `chờ mở lại`: làm tiếp `/setup` từ bước ghi trong file.
 
 ## Nói tự nhiên
 
@@ -27,6 +30,7 @@ Designer nói bằng lời công việc, gửi ảnh hoặc link. AI hiểu ý t
 
 | Designer nói | Chuyển tới |
 |---|---|
+| "cài đặt workflow", "cài đặt UIUX-Workflow từ <link>", "tiếp tục cài đặt", "đổi cách kết nối Figma" | `/setup` |
 | "PRD tính năng X đã duyệt", "có yêu cầu mới", "sửa màn X theo CR" | `/new-intent`, hoặc `/ux` nếu đã có intent |
 | "PO họp xong rồi", "các bên ok chiến lược rồi" | `/ux`: đồng bộ D3 với repo PO |
 | "làm prototype", "cho thao tác thử luồng" | E3, hoặc flow prototype ở D2 nếu chưa có UI |
@@ -75,7 +79,7 @@ KB đang cài: khung trống, chưa gắn sản phẩm. Định nghĩa và mức
 - Không phân tích lại nghiệp vụ. Tài liệu yêu cầu của PO là đầu vào. Discovery chỉ làm ba việc: hiểu yêu cầu, phân tích flow, xác định chiến lược thiết kế. Yêu cầu mâu thuẫn hoặc thiếu rule thì ghi `❓PO` và đưa vào danh sách hỏi PO, không tự sửa yêu cầu.
 - Không quyết định thay Designer; chỉ gợi ý dưới nhãn `Recommendation`. Lời duyệt ghi nguyên văn. Các bên chỉ đồng thuận ở D3 trên chiến lược; phần chi tiết do Designer quyết định. PO muốn xem thiết kế cuối thì xem trên Figma và prototype.
 - Không vẽ lên Figma trước khi chiến lược qua Alignment Gate.
-- Không sửa PRD và file của team khác trên repo PO; chỉ sửa file thiết kế UX của Designer, xem diff trước khi commit, push khi Designer yêu cầu. Repo chỉ đọc hoặc không có repo: theo `SETUP.md` mục 3.
+- Không sửa PRD và file của team khác trên repo PO; chỉ sửa file thiết kế UX của Designer, xem diff trước khi commit, push khi Designer yêu cầu. Repo chỉ đọc hoặc không có repo: theo `USER-GUIDE.md` mục A4.
 - Không dựng hoặc sửa component trong UI kit, design system; chỉ đề xuất qua `/kit-proposal`.
 - Màn cần sáng tạo (L3) phải có design ref trước khi vẽ; thiếu ref thì Blocked, không tự chế hướng thị giác.
 - Góp ý lên thiết kế được ghi vào feedback matrix của R1. Chỉ khi chiến lược đã đồng thuận phải đổi mới chuyển sang `/change-request`.

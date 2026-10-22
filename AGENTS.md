@@ -7,4 +7,4 @@ Hướng dẫn cho công cụ AI khác Claude Code (ví dụ Codex, Cursor) khi 
 3. Nghi thức chung nằm ở `.claude/protocol/`. Template ở `.claude/templates/`, checklist ở `.claude/verification/`, kiến thức ở `.claude/knowledge/`.
 4. Review độc lập: không tự review thiết kế do chính phiên này làm ra. Đề nghị người dùng mở phiên mới, đưa các file theo `.claude/protocol/review-protocol.md` và yêu cầu phiên đó đóng vai theo `.claude/agents/ux-lead.md`.
 5. Hộp chọn câu hỏi (AskUserQuestion) có thể không có trong công cụ này. Khi đó trình câu hỏi dạng danh sách đánh chữ cái và chờ người dùng trả lời.
-6. Kết nối Figma và các lựa chọn thay thế: `SETUP.md`.
+6. Cài đặt, kết nối Figma và các lựa chọn thay thế: `USER-GUIDE.md` Phần A. Lệnh cài đặt: `.claude/commands/setup.md`; bước thêm kết nối Figma dùng cách cấu hình MCP của công cụ đang dùng, giữ tên server `figma-desktop`, `figma-console`.

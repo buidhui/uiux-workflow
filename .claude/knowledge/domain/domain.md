@@ -15,7 +15,7 @@ Manifest của knowledge base sản phẩm. Engine đọc file này ở đầu m
 - Nhịp sprint (độ dài, ngày refinement, ngày planning):
 
 ## 2. Nguồn yêu cầu và đồng thuận
-- Cách làm việc với tài liệu của PO (repo có quyền push, repo chỉ đọc, không có repo; `SETUP.md` mục 3):
+- Cách làm việc với tài liệu của PO (repo có quyền push, repo chỉ đọc, không có repo; `USER-GUIDE.md` mục A4):
 - Repo của PO và đường dẫn intent:
 - Tài liệu đầu vào chính (PRD, user stories) và mức hoàn thiện cần có trước khi bắt đầu:
 - Template file thiết kế UX của PO và vị trí đặt file:
@@ -49,8 +49,9 @@ Manifest của knowledge base sản phẩm. Engine đọc file này ở đầu m
 - Khu vực nháp cho AI (page hoặc branch):
 - Quy ước đặt tên frame:
 - Trang changelog và quy ước lưu version:
-- Lựa chọn kết nối Figma đang dùng (A, B, C, D theo `SETUP.md` mục 2), quyền của tài khoản:
-- Kết quả kiểm các khả năng "Kiểm khi cài" (lưu version, ghi annotation):
+- Người cấp quyền sửa file Figma cho Designer mới:
+
+Cách kết nối Figma và kết quả kiểm khả năng là thông tin của từng máy, nằm ở `.claude/local/setup.md`, không ghi ở đây.
 
 ## 7. Frontend stack cho prototype
 - Thư viện component của frontend thật và version:

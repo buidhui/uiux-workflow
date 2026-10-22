@@ -26,7 +26,7 @@ Chạy theo `.claude/protocol/stage-protocol.md`.
 Chiến lược thiết kế được các bên đọc và đồng thuận trước khi Designer đầu tư vào Figma. Điểm lệch giữa yêu cầu và thiết kế lộ ra ở đây, khi sửa còn ít tốn công. Đây là điểm duy nhất bên ngoài tham gia đồng thuận ở cấp định hướng; phần chi tiết sau đó do Designer quyết định.
 
 ## 1. Đẩy lên repo của PO
-Cách làm theo KB mục 2, một trong ba trường hợp ở `SETUP.md` mục 3:
+Cách làm theo KB mục 2, một trong ba trường hợp ở `USER-GUIDE.md` mục A4:
 - Repo có quyền push: các bước dưới đây.
 - Repo chỉ đọc: làm bước 1 đến 3, lưu file vào `discovery/alignment/`; Designer gửi PO hoặc mở pull request theo quy ước.
 - Không có repo: render theo template của PO nếu có, không có thì theo `design-strategy.md` mục 1 đến 7; lưu vào `discovery/alignment/`; Designer đưa lên nơi PO dùng.

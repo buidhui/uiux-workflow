@@ -38,7 +38,7 @@ Chạy theo `.claude/protocol/stage-protocol.md`.
 Vì vậy: HTML là đầu ra chính. Figma prototype chỉ nối điều hướng giữa các frame theo flow chính, khi Designer muốn trình bày trong Figma. Figma là nguồn sự thật về giao diện; HTML là nguồn sự thật về hành vi trong phạm vi prototype.
 
 ## Các bước
-1. Lấy cấu trúc từng màn từ Figma (đọc design context của frame), nội dung chữ thật, state đã vẽ. Không đọc được Figma (lựa chọn D ở `SETUP.md`): dựng từ chiến lược, UX Brief và ảnh Designer gửi; ghi trong `prototype-report.md` rằng cấu trúc lấy từ ảnh.
+1. Lấy cấu trúc từng màn từ Figma (đọc design context của frame), nội dung chữ thật, state đã vẽ. Không đọc được Figma (lựa chọn D ở `USER-GUIDE.md` mục A3): dựng từ chiến lược, UX Brief và ảnh Designer gửi; ghi trong `prototype-report.md` rằng cấu trúc lấy từ ảnh.
 2. Dựng `index.html` một file theo `prototyping.md`: điều hướng theo `flow-map.md`; dùng thư viện component và theme theo KB mục 7, không có thì HTML và CSS theo token của KB; bảng điều khiển đổi state, vai, bộ dữ liệu; dữ liệu mẫu thực tế.
 3. Hành vi theo rule đã thống nhất: validate, điều kiện hiện, quyền. Rule chưa được xác định thì hiện chú thích, không tự đặt.
 4. Kiểm: mở bằng trình duyệt, đi trọn từng flow, chụp màn hình từng màn, so với frame Figma, ghi điểm lệch.
